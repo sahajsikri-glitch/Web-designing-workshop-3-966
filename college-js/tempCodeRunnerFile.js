@@ -1,4 +1,4 @@
-// //function:block of code
+
 // const sayHello = function () {
 //   console.log("cse-24 fsd");
 // };
@@ -22,21 +22,3 @@
 // }
 // bye();
 // console.log("Task3");
-
-function helloYou(n1, n2, callback) {
-  console.log("task1");
-  callback();
-  return n1 + n2;
-}
-let a = 10;
-let b = 20;
-console.log(helloYou(a, b));
-
-helloYou(a, b, hi);
-
-function hi() {
-  console.log("hi");
-}
-hi();
-
-console.log(helloYou(2, 3));
