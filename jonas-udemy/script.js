@@ -9,9 +9,83 @@
 //eg-1 settimeout
 // eg-2 img.src (To load an image )
 
-const img = document.querySelector(".dog");
-img.src = "dog.jpg";
-img.addEventListener("load", function () {
-  img.classList.add("fadeIn");
+// const img = document.querySelector(".dog");
+// img.src = "dog.jpg";
+// img.addEventListener("load", function () {
+//   img.classList.add("fadeIn");
+// });
+// p.style.width = "300px";
+
+// AJAX(ASYNCHROUNOUS JS AND XML)=allow us to communicate with
+//  remote web servers in asynchronous way.
+// with ajax calls we can request data from web servers dynamically
+
+// client request --> web server(usually web api)
+// client <--response web server(usually web api)
+
+//API = it is basically a piece of software that can be used by another
+//piece of software;in order to allow applications to talk to each other
+// => exchange information
+
+// eg(IN REAL WORLD - dom api , geolocation api
+
+// ONLINE API = application running on a server that recieves request
+// as data and sends data back as response
+// we can build our own API using backend development
+
+// there are usually API for everything mostly :
+// weather data
+// data about countries
+// flights data
+// currency onversion
+// google maps
+
+// XML IS USED TO TRANSMIT DATA ON THE WEB
+// nowadays noone se xml data format anymore ;
+// people use jason format coz its easy to use
+
+//OUR FIRST AJAX CALL :
+"use strict";
+
+const btn = document.querySelector(".btn-country");
+const countriesContainer = document.querySelector(".countries");
+
+// NEW COUNTRIES API URL (use instead of the URL shown in videos):
+// https://restcountries.com/v2/name/portugal
+
+// NEW REVERSE GEOCODING API URL (use instead of the URL shown in videos):
+// https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lng}
+
+//OLD SCHOOL WAY OF AJAX CALLING :
+const request = new XMLHttpRequest();
+request.open(
+  "GET",
+  "https://countries-api-836d.onrender.com/countries/name/portugal",
+);
+request.send();
+
+request.addEventListener("load", function () {
+  // console.log(this.responseText);
+  const [data] = JSON.parse(this.responseText);
+  console.log(data);
+  //JSON is basically a big string of text
+  const html = `
+<article class="country">
+  <img class="country__img" src="${data.flag}" />
+  <div class="country__data">
+    <h3 class="country__name">${data.name}</h3>
+    <h4 class="country__region">${data.region}</h4>
+    <p class="country__row">
+      <span>👫</span>${(+data.population / 1000000).toFixed(1)}
+    </p>
+    <p class="country__row">
+      <span>🗣️</span>${data.languages[0].name}
+    </p>
+    <p class="country__row">
+      <span>💰</span>${data.currencies[0].name}
+    </p>
+  </div>
+</article>;`;
+  countriesContainer.insertAdjacentHTML("beforeend", html);
+  countriesContainer.computedStyleMap.opacity = 1;
 });
-p.style.width = "300px";
