@@ -29,6 +29,19 @@
 
 // eg(IN REAL WORLD - dom api , geolocation api
 
+// Think of an API as a waiter in a restaurant.
+// YOU (Browser)
+//       │
+//       ▼
+//     API (Waiter)
+//       │
+//       ▼
+// Database / Server (Kitchen)
+
+// You don't go into the kitchen.
+// You tell the waiter
+// "Give me Portugal's information."
+
 // ONLINE API = application running on a server that recieves request
 // as data and sends data back as response
 // we can build our own API using backend development
@@ -58,17 +71,45 @@ const countriesContainer = document.querySelector(".countries");
 
 //OLD SCHOOL WAY OF AJAX CALLING :
 const request = new XMLHttpRequest();
+// This creates an object capable of making an HTTP request.
+// Think of it as creating a delivery truck.
+// Truck created.
+// Not moving yet.
+
 request.open(
-  "GET",
+  "GET", //There are different HTTP methods.
+  // GET
+  // Give me data.
+
+  // POST
+  // Create new data.
+
+  // PUT
+  // Update data.
+
+  // DELETE
+  // Delete data.
+
   "https://countries-api-836d.onrender.com/countries/name/portugal",
+  //This is the address of the API.
 );
-request.send();
+request.send(); //Now the truck leaves
 
 request.addEventListener("load", function () {
+  //this means when the fucn finishes loading ;run this function
   // console.log(this.responseText);
-  const [data] = JSON.parse(this.responseText);
+  const [data] = JSON.parse(this.responseText); //IMP!
+  //JSON.parse() converts
+  // TEXT
+  // ↓
+  // JavaScript Object
+  //SO NOW I CAN USE DATA.NAME AND ALL SHIT
+
   console.log(data);
   //JSON is basically a big string of text
+
+  //LEARN THIS WAY OF OPERATING
+  //THIS IS VERY COMMON IN REAL WORLD FRONTEND USING
   const html = `
 <article class="country">
   <img class="country__img" src="${data.flag}" />
@@ -87,5 +128,37 @@ request.addEventListener("load", function () {
   </div>
 </article>;`;
   countriesContainer.insertAdjacentHTML("beforeend", html);
-  countriesContainer.computedStyleMap.opacity = 1;
+  // means Insert this HTML inside
+  // <div class="countries">  at the end.
+
+  // Equivalent to
+
+  // <div class="countries">
+  // existing content
+  // ↓
+  // new Portugal card
+  // </div>
+  countriesContainer.computedStyle.opacity = 1;
 });
+
+//NOWADAYS WE CALL THIS SHIT JASON
+// The key idea is:
+// Old websites
+
+// Click button
+// ↓
+// Whole page reloads
+// ↓
+// New data appears
+
+// Modern websites:
+
+// Click button
+// ↓
+// Request data
+// ↓
+// Only update the necessary part
+// ↓
+// No page refresh
+
+// That's why sites like Instagram, X (Twitter), and Gmail feel smooth.
