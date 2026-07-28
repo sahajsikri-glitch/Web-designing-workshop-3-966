@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "name": "Aarav Sharma",
+    "age": 20,
+    "gender": "Male",
+    "course": "B.Tech CSE",
+    "year": 2,
+    "cgpa": 8.7,
+    "email": "aarav.sharma@example.com",
+    "phone": "9876543210",
+    "city": "Delhi"
+  },
+  {
+    "id": 2,
+    "name": "Ananya Verma",
+    "age": 19,
+    "gender": "Female",
+    "course": "B.Tech AI",
+    "year": 1,
+    "cgpa": 9.1,
+    "email": "ananya.verma@example.com",
+    "phone": "9876543211",
+    "city": "Mumbai"
+  },
+  {
+    "id": 3,
+    "name": "Rohan Gupta",
+    "age": 21,
+    "gender": "Male",
+    "course": "B.Tech IT",
+    "year": 3,
+    "cgpa": 8.3,
+    "email": "rohan.gupta@example.com",
+    "phone": "9876543212",
+    "city": "Lucknow"
+  },
+  {
+    "id": 4,
+    "name": "Priya Singh",
+    "age": 20,
+    "gender": "Female",
+    "course": "B.Tech CSE",
+    "year": 2,
+    "cgpa": 9.4,
+    "email": "priya.singh@example.com",
+    "phone": "9876543213",
+    "city": "Jaipur"
+  },
+  {
+    "id": 5,
+    "name": "Kabir Mehta",
+    "age": 22,
+    "gender": "Male",
+    "course": "B.Tech ECE",
+    "year": 4,
+    "cgpa": 7.9,
+    "email": "kabir.mehta@example.com",
+    "phone": "9876543214",
+    "city": "Pune"
+  },
+  {
+    "id": 6,
+    "name": "Sneha Kapoor",
+    "age": 19,
+    "gender": "Female",
+    "course": "B.Tech AI",
+    "year": 1,
+    "cgpa": 8.9,
+    "email": "sneha.kapoor@example.com",
+    "phone": "9876543215",
+    "city": "Chandigarh"
+  },
+  {
+    "id": 7,
+    "name": "Arjun Patel",
+    "age": 21,
+    "gender": "Male",
+    "course": "B.Tech Mechanical",
+    "year": 3,
+    "cgpa": 7.6,
+    "email": "arjun.patel@example.com",
+    "phone": "9876543216",
+    "city": "Ahmedabad"
+  },
+  {
+    "id": 8,
+    "name": "Neha Joshi",
+    "age": 20,
+    "gender": "Female",
+    "course": "B.Tech Civil",
+    "year": 2,
+    "cgpa": 8.5,
+    "email": "neha.joshi@example.com",
+    "phone": "9876543217",
+    "city": "Bhopal"
+  },
+  {
+    "id": 9,
+    "name": "Vikram Rao",
+    "age": 22,
+    "gender": "Male",
+    "course": "B.Tech Data Science",
+    "year": 4,
+    "cgpa": 9.0,
+    "email": "vikram.rao@example.com",
+    "phone": "9876543218",
+    "city": "Hyderabad"
+  },
+  {
+    "id": 10,
+    "name": "Isha Malhotra",
+    "age": 19,
+    "gender": "Female",
+    "course": "B.Tech Cyber Security",
+    "year": 1,
+    "cgpa": 9.3,
+    "email": "isha.malhotra@example.com",
+    "phone": "9876543219",
+    "city": "Noida"
+  }
+]
