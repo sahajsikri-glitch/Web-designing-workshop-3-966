@@ -102,56 +102,74 @@
 // Login completed
 // ↓
 // then() executes
-const promise = new Promise((resolve, reject) => {
-  setTimeout(function () {
-    let err = true;
-    if (!err) {
-      resolve({
-        username: "ABC",
-        password: "123",
-      });
-    } else {
-      reject("ERRO: username /password not found");
-    }
-  }, 2000);
-});
-promise
-  .then((user) => {
-    console.log(user.username);
-    console.log(user.password);
-  })
-  .catch((error) => {
-    console.log(error);
-  });
-//But how do we get the result?
-// We use
-// .then()
-// .catch()
-promise
-  .then((user) => {
-    console.log(user.username);
-    console.log(user.password);
-  })
-  .catch((error) => {
-    console.log(error);
-  });
+// const promise = new Promise((resolve, reject) => {
+//   setTimeout(function () {
+//     let err = true;
+//     if (!err) {
+//       resolve({
+//         username: "ABC",
+//         password: "123",
+//       });
+//     } else {
+//       reject("ERRO: username /password not found");
+//     }
+//   }, 2000);
+// });
+// promise
+//   .then((user) => {
+//     console.log(user.username);
+//     console.log(user.password);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   });
+// //But how do we get the result?
+// // We use
+// // .then()
+// // .catch()
+// promise
+//   .then((user) => {
+//     console.log(user.username);
+//     console.log(user.password);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   });
 
-async function test() {
-  console.log("message:1");
-  // console.log("4");
-  const response = await fetch("./student.json");
-  const stdn = await response.json(); //await ko use karke iska data fetch kia
-  return stdn;
-  console.log("message:2");
-}
-test().then((res) => {
-  console.log(res);
-});
+// async function test() {
+//   console.log("message:1");
+//   // console.log("4");
+//   const response = await fetch("./student.json");
+//   const stdn = await response.json(); //await ko use karke iska data fetch kia
+//   return stdn;
+//   console.log("message:2");
+// }
+// test().then((res) => {
+//   console.log(res);
+// });
 
-//eventloop - create one syncronous task
-
+// //eventloop
+//understanding about microtask que call stack
+console.log("synchronous task");
+const f1 = () => {
+  console.log("f1");
+};
+const f2 = () => {
+  console.log("f2");
+};
 function main() {
-  setTimeout(() => {}, 2000);
-  console.log("Task1");
-  const promise = new Promise((resolve, reject) => {});
+  setTimeout(f1, 1000);
+  setTimeout(f2, 1000);
+  console.log("This is event loop");
+  new Promise((resolve, reject) => {
+    resolve("i am promise1");
+  }).then((result) => {
+    console.log(result);
+  });
+  new Promise((resolve, reject) => {
+    resolve("i am promise2");
+  }).then((res) => {
+    console.log(res);
+  });
 }
+main();
