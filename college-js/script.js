@@ -41,6 +41,20 @@
 
 // console.log(helloYou(2, 3));
 
+//PROMISE :
+
+//     Create Promise
+//         |
+//         V
+//      Pending...
+//         |
+//   Is everything OK?
+//       /        \
+//     YES        NO
+//      |          |
+//  resolve()   reject()
+//      |          |
+// Fulfilled   Rejected
 //const promiseOne = new Promise((resolve, reject) => {
 //     console.log("Promise Task 1");
 //     resolve("Promises passed by using resolve");
@@ -71,18 +85,56 @@
 // console.log("5");
 // create promises that will print username and password using resolve
 // and if username and pass not found then it will call reject state and print ERROR
-// const promise = new Promise((resolve,reject)={
-//   setTimeout(function(){
-//     let err = true;
-//     if(!err){
-//       resolve("user:ABC,password:1234");
-//     }
-//     else{
-//       reject
 
-//     }
-//   }
-// });
+// Why don't we use if outside?
+// Without Promise :
+
+// Problem:
+
+// The login may take 2 seconds.
+// JavaScript doesn't know when it finishes.
+
+// Promise solves this.
+// Start login
+// ↓
+// Continue doing other work
+// ↓
+// Login completed
+// ↓
+// then() executes
+const promise = new Promise((resolve, reject) => {
+  setTimeout(function () {
+    let err = true;
+    if (!err) {
+      resolve({
+        username: "ABC",
+        password: "123",
+      });
+    } else {
+      reject("ERRO: username /password not found");
+    }
+  }, 2000);
+});
+promise
+  .then((user) => {
+    console.log(user.username);
+    console.log(user.password);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+//But how do we get the result?
+// We use
+// .then()
+// .catch()
+promise
+  .then((user) => {
+    console.log(user.username);
+    console.log(user.password);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
 
 async function test() {
   console.log("message:1");
@@ -92,4 +144,14 @@ async function test() {
   return stdn;
   console.log("message:2");
 }
-test();
+test().then((res) => {
+  console.log(res);
+});
+
+//eventloop - create one syncronous task
+
+function main() {
+  setTimeout(() => {}, 2000);
+  console.log("Task1");
+  const promise = new Promise((resolve, reject) => {});
+}
