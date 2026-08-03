@@ -173,3 +173,12 @@ function main() {
   });
 }
 main();
+
+//Event
+//event -on(emit event parameter,callback)-register event or event
+const EventEmitter = require("events");
+const emitter = new EventEmitter();
+emitter.on("greet", () => {
+  console.log("this is event emmitter");
+});
+greet.EventEmmiter();
