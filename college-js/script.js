@@ -176,9 +176,20 @@ main();
 
 //Event
 //event -on(emit event parameter,callback)-register event or event
+// const EventEmitter = require("events");
+// const emitter = new EventEmitter();
+// emitter.on("greet", () => {
+//   console.log("this is event emmitter");
+// });
+// greet.EventEmmiter();
+
+//exit:
 const EventEmitter = require("events");
+class MyEvent extends EventEmitter {}
 const emitter = new EventEmitter();
-emitter.on("greet", () => {
-  console.log("this is event emmitter");
+events.on("greet", (name) => {
+  console.log(`this is event emmitter ${name}`);
 });
-greet.EventEmmiter();
+events.on("Exit", () => {});
+events.emit("greet", "sahaj");
+// document.body.
